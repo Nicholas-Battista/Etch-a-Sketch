@@ -1,5 +1,6 @@
 const container = document.querySelector('.main-container');
 let isMouseDown = false;
+let defaultSize = 16;
 
 
 function handleMouseEvent(event) {
@@ -16,9 +17,11 @@ function handleMouseEvent(event) {
 
 
 function createGrid (LW) {
+    container.innerHTML = "";
     for (let i = 0; i < (LW * LW); i++) {
         let div = document.createElement("div");
         div.classList.add("grid-item");
+        
         div.style.width = `calc(480px / ${LW})`;
         div.style.height = `calc(480px / ${LW})`;
 
@@ -27,8 +30,21 @@ function createGrid (LW) {
         div.addEventListener('mouseup', handleMouseEvent);
 
         container.appendChild(div);
-    };
+
+        document.getElementById('gridSizeValue').textContent = `${LW}x${LW}`;
+         
+};
 };
 
-window.onload = createGrid(40);
+function handleSliderChange() {
+    let newSize = parseInt(document.getElementById('gridSizeSlider').value);
+    createGrid(newSize);
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+    createGrid(defaultSize);
+
+    document.getElementById('gridSizeSlider').addEventListener("input",handleSliderChange);
+});
+
 
