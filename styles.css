@@ -15,9 +15,6 @@ body {
 .grid-item {
     box-sizing: border-box;
     background-color: lightgray;
-    border: 1px solid black;
-    width: calc(480px / 16); 
-    height: calc(480px / 16); 
     cursor: pointer;
 }
 

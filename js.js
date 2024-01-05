@@ -19,6 +19,8 @@ function createGrid (LW) {
     for (let i = 0; i < (LW * LW); i++) {
         let div = document.createElement("div");
         div.classList.add("grid-item");
+        div.style.width = `calc(480px / ${LW})`;
+        div.style.height = `calc(480px / ${LW})`;
 
         div.addEventListener('mouseover', handleMouseEvent);
         div.addEventListener('mousedown', handleMouseEvent);
@@ -28,5 +30,5 @@ function createGrid (LW) {
     };
 };
 
-window.onload = createGrid(16);
+window.onload = createGrid(40);
 
