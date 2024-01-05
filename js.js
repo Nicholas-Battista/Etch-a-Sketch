@@ -15,6 +15,21 @@ function handleMouseEvent(event) {
     }
 };
 
+function debounce(func, delay) {
+    let timeoutId;
+    return function() {
+        const context = this;
+        const args = arguments;
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+            func.apply(context, args);
+        }, delay);
+    };
+}
+
+
+
+const debouncedHandleSliderChange = debounce(handleSliderChange, 200);
 
 function createGrid (LW) {
     container.innerHTML = "";
@@ -48,7 +63,7 @@ function handleSliderChange() {
 window.onload = function(){
     createGrid(defaultSize);
 
-    document.getElementById('gridSizeSlider').addEventListener("input",handleSliderChange);
+    document.getElementById('gridSizeSlider').addEventListener("input",debouncedHandleSliderChange);
 };
     
 
