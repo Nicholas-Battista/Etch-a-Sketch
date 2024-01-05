@@ -32,7 +32,11 @@ function createGrid (LW) {
         container.appendChild(div);
 
         document.getElementById('gridSizeValue').textContent = `${LW}x${LW}`;
-         
+        
+        document.querySelector('.clear').addEventListener("click", function() {
+            div.style.backgroundColor = "lightgray";
+        });
+        
 };
 };
 
@@ -47,6 +51,5 @@ window.onload = function(){
     document.getElementById('gridSizeSlider').addEventListener("input",handleSliderChange);
 };
     
-
 
 
