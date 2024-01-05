@@ -41,10 +41,12 @@ function handleSliderChange() {
     createGrid(newSize);
 }
 
-document.addEventListener('DOMContentLoaded',function(){
+window.onload = function(){
     createGrid(defaultSize);
 
     document.getElementById('gridSizeSlider').addEventListener("input",handleSliderChange);
-});
+};
+    
+
 
 

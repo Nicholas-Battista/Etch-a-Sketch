@@ -8,12 +8,17 @@
     <title>Etch-a-Sketch</title>
 </head>
 <body>
-    <label for="gridSizeSlider">Grid Size: </label>
-    <input type="range" id="gridSizeSlider" min="1" max="64" value="16" step="1">
-    <span id="gridSizeValue">16x16</span>
+    <h1>Etch-a-Sketch</h1>
 
+    <div class="containerForSlider">
+        <div class="sliderContents">
+            <span id="gridSizeValue">16x16</span>
+            <input type="range" id="gridSizeSlider" min="1" max="64" value="16" step="1">
+        </div>
     <div class="main-container"></div>
+    </div>
     
+
 <script src="js.js" defer></script>
 </body>
 </html>
