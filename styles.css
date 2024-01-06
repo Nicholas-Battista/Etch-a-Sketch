@@ -32,6 +32,21 @@ body {
 .grid-item {
     box-sizing: border-box;
     background-color: lightgray;
-    cursor: pointer;
+    
 }
 
+.blue {
+    background-color: blue;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+}
+
+.red {
+    background-color: red;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+}

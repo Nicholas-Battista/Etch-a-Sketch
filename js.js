@@ -1,7 +1,7 @@
 const container = document.querySelector('.main-container');
 let isMouseDown = false;
 let defaultSize = 16;
-
+let currentColor = "blue";
 
 function handleMouseEvent(event) {
     if (event.type === "mousedown"){
@@ -11,7 +11,7 @@ function handleMouseEvent(event) {
         isMouseDown = false;
     }
     if (event.type === "mousedown" || (event.type === "mouseover" && isMouseDown)) {
-        this.style.backgroundColor = "blue";
+        this.style.backgroundColor = currentColor;
     }
 };
 
@@ -27,7 +27,10 @@ function debounce(func, delay) {
     };
 }
 
-
+function updateSliderValue() {
+    let newSize = parseInt(document.getElementById('gridSizeSlider').value);
+    document.getElementById('gridSizeValue').textContent = `${newSize}x${newSize}`;
+}
 
 const debouncedHandleSliderChange = debounce(handleSliderChange, 200);
 
@@ -44,15 +47,13 @@ function createGrid (LW) {
         div.addEventListener('mousedown', handleMouseEvent);
         div.addEventListener('mouseup', handleMouseEvent);
 
-        container.appendChild(div);
+        container.appendChild(div); 
 
-        document.getElementById('gridSizeValue').textContent = `${LW}x${LW}`;
-        
         document.querySelector('.clear').addEventListener("click", function() {
             div.style.backgroundColor = "lightgray";
         });
-        
-};
+    };
+    
 };
 
 function handleSliderChange() {
@@ -60,10 +61,17 @@ function handleSliderChange() {
     createGrid(newSize);
 }
 
+function setColor(color){
+    currentColor = color;
+}
+
 window.onload = function(){
     createGrid(defaultSize);
 
-    document.getElementById('gridSizeSlider').addEventListener("input",debouncedHandleSliderChange);
+    document.getElementById('gridSizeSlider').addEventListener("input", function() {
+        updateSliderValue();
+        debouncedHandleSliderChange();
+    });
 };
     
 
