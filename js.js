@@ -4,6 +4,8 @@ let defaultSize = 16;
 let currentColor = "blue";
 
 function handleMouseEvent(event) {
+    event.preventDefault();
+    
     if (event.type === "mousedown"){
         isMouseDown = true;
     }
