@@ -8,23 +8,36 @@
     <title>Etch-a-Sketch</title>
 </head>
 <body>
-    <h1>Etch-a-Sketch</h1>
-
-    <div class="containerForSlider">
-        <div class="sliderContents">
-            <div class="colors">
-                <button class="blue" onclick="setColor('blue')"></button>
-                <button class="red" onclick="setColor('red')"></button>
-            </div>
-        </div>
-            <span id="gridSizeValue">16x16</span>
-            <input type="range" id="gridSizeSlider" min="1" max="64" value="16" step="1">
-
-            <button class="clear">Clear Board</button>
-        </div>
-    <div class="main-container"></div>
-    </div>
+    <div class="container">
+        <div class="title"><h1>Etch-a-Sketch</h1></div>
+            <div class="controls-container">
+                <div class="controls">
+                    <div class="colors">
+                        <button class="blue" onclick="setColor('blue')"></button>
+                        <button class="red" onclick="setColor('red')"></button>
+                        <button class="black" onclick="setColor('black')"></button>
+                        <button class="erase" onclick="setColor('lightgray')"><img src="eraser.png" alt="eraser icon" class="img"></button>
+                    </div>
+            
     
+                    <div class="slider">
+                        <span id="gridSizeValue">16x16</span>
+                        <input type="range" id="gridSizeSlider" min="1" max="64" value="16" step="1">
+                    </div>
+    
+                    <button class="clear">Clear Board</button>
+                </div> 
+            </div>
+            <div class="main-container"></div>
+    </div>
+
+    <div class="footer">
+        <p>Nicholas-Battista 2024</p>
+        <a href="https://github.com/Nicholas-Battista" target="_blank">
+            <img src="github-mark-white.png" alt="white github logo">
+        </a>
+    </div>
+
 
 <script src="js.js" defer></script>
 </body>
